@@ -1,0 +1,13 @@
+/*a.external_link:after {*/
+a.external:after {
+    /*
+    font-family: 'FontAwesome';
+    content: " \f08e";
+    */
+    content: url(https://upload.wikimedia.org/wikipedia/commons/6/64/Icon_External_Link.png);
+    margin: 0 0 0 5px;
+}
+
+.utterances {
+    margin-left: inherit;
+}
