@@ -15,12 +15,15 @@ rst_prolog = """
 
 """
 
-templates_path = ['_files_common/templates']
+templates_path = [
+    '_files_common/templates',
+]
 
 exclude_patterns = [
     '_files_common',
     'README.md',
     '*thydev*', '**/*thydev*',
+    '_snippets',
 ]
 
 html_show_sphinx = False
@@ -34,19 +37,24 @@ html_theme_options = {
     # 'logo_only'            : True,
 
     'navigation_with_keys' : True,
-    'extra_navbar'         : None,
+    # 'extra_navbar'         : None,
     # 'sidebar_hide_name'   : True,
     'use_download_button'  : False,
     'use_fullscreen_button': False,
+    'use_sidenotes'        : True,
 
+    # https://sphinx-book-theme.readthedocs.io/en/latest/components/source-files.html
+    'repository_provider'  : 'github',
     'repository_url'       : 'https://thump.cc/thynotes.git',
-    'path_to_docs'         : 'docs',
+    # 'path_to_docs'         : '',
     'repository_branch'    : 'main',
-    'use_repository_button': False,
+    'use_repository_button': True,
+    'use_source_button'    : True,
     'use_edit_page_button' : True,
+    'use_issues_button'    : True,
 
-    "show_toc_level"       : 2,
-
+    'show_toc_level'       : 2,
+    'article_footer_items' : ['footer-article.html']
 }
 html_last_updated_fmt = "%d-%b-%Y"
 
@@ -66,12 +74,17 @@ images_config = {
 }
 
 source_suffix = {
-    '.rst'  : 'restructuredtext',
-    '.ipynb': 'myst-nb',
-    '.md'   : 'myst-nb',
+    '.rst': 'restructuredtext',
+    # '.ipynb': 'myst-nb',
+    '.md' : 'markdown',
 }
 
+# https://myst-parser.readthedocs.io/en/latest/syntax/optional.html
 myst_enable_extensions = [
+    # https://myst-parser.readthedocs.io/en/latest/syntax/optional.html#block-attributes
+    "attrs_block",
+    # https://myst-parser.readthedocs.io/en/latest/syntax/optional.html#inline-attributes
+    "attrs_inline",
     "amsmath",
     "colon_fence",
     "deflist",
@@ -108,9 +121,18 @@ extensions = [
     'sphinx.ext.autosectionlabel',
     'sphinx.ext.todo',
 
+    # https://sphinx-autodoc2.readthedocs.io/en/latest/index.html
+    # 'autodoc2',
+
     # If you are using MyST-NB in your documentation, do not activate `myst-parser`. It will
     # be automatically activated by `myst-nb`.
-    # 'myst_parser',
+    'myst_parser',
+
+    # https://myst-nb.readthedocs.io/en/latest/
+    # 'myst_nb',
+
+    # https://sphinx-tippy.readthedocs.io/en/latest/
+    # 'sphinx_tippy',
 
     # https://sphinx-toolbox.readthedocs.io/en/latest/index.html
     'sphinx_toolbox.wikipedia',
@@ -127,9 +149,6 @@ extensions = [
     # https://ablog.readthedocs.io/en/stable/
     'ablog',
 
-    # https://myst-nb.readthedocs.io/en/latest/
-    'myst_nb',
-
     # https://numpydoc.readthedocs.io/en/latest/index.html
     'numpydoc',
 
@@ -140,6 +159,7 @@ extensions = [
     # 'sphinx_tabs.tabs',
 
     # https://sphinx-thebe.readthedocs.io/en/latest/
+    # http://thebe.readthedocs.org/
     # 'sphinx_thebe',
 
     # Collapse admonitions

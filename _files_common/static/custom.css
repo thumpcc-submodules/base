@@ -1,3 +1,8 @@
+.bd-main {
+    max-width: 100%;
+    flex-grow: 1;
+}
+
 /*a.external_link:after {*/
 a.external:after {
     /*

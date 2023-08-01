@@ -1,3 +1,6 @@
-$(document).ready(function () {
-  $("a.external:not([href^='https://thy'],[href^='https://thump'])").attr("target", "_blank").addClass("external_link")
-})
+document.addEventListener("DOMContentLoaded", function (event) {
+    const elems = document.querySelectorAll('a.external');
+    elems.forEach(elem => {
+        elem.setAttribute("target", "_blank");
+    })
+});
