@@ -1,8 +1,8 @@
 SPHINXOPTS    ?=
-PYENV         ?= ~/.thynotes
+PYENV         ?= ~/miniconda3/envs/thynotes
 SPHINXBUILD   ?= $(PYENV)/bin/sphinx-build
 SOURCEDIR     = .
-BUILDDIR      = /tmp/thumpcc/$(shell basename $(shell dirname $(abspath $(lastword $(MAKEFILE_LIST)))))
+BUILDDIR      = /tmp/thynotes/$(shell basename $(shell dirname $(abspath $(lastword $(MAKEFILE_LIST)))))
 
 help:
 	@$(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)

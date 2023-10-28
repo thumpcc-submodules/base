@@ -1,6 +1,13 @@
-.bd-main {
-    max-width: 100%;
+.bd-main  {
     flex-grow: 1;
+}
+
+.bd-main .bd-content .bd-article-container {
+    max-width: 100%;
+}
+
+.bd-sidebar-primary .sidebar-primary-items__end {
+    margin-top: 0;
 }
 
 /*a.external_link:after {*/

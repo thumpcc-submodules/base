@@ -16,14 +16,13 @@ rst_prolog = """
 """
 
 templates_path = [
-    '_files_common/templates',
+    '_var/_roaming/templates',
 ]
 
 exclude_patterns = [
-    '_files_common',
+    '_var',
     'README.md',
     '*thydev*', '**/*thydev*',
-    '_snippets',
 ]
 
 html_show_sphinx = False
@@ -54,23 +53,28 @@ html_theme_options = {
     'use_issues_button'    : True,
 
     'show_toc_level'       : 2,
-    'article_footer_items' : ['footer-article.html']
+    'article_footer_items' : ['footer-article.html'],
+
+    # https://pygments.org/styles/
+    'pygment_light_style'  : 'tango',
+    'pygment_dark_style'   : 'lightbulb',
+
 }
 html_last_updated_fmt = "%d-%b-%Y"
 
 html_css_files = [
     'custom.css',
-    'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css',
+    # 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css',
 ]
 html_js_files = [
     'custom.js',
 ]
-html_static_path = ['_files_common/static']
+html_static_path = ['_var/_roaming/static']
 html_extra_path = []
 html_show_sourcelink = False
 
 images_config = {
-    'cache_path': '_files/sphinxcontrib.images'
+    'cache_path': '_var/sphinxcontrib.images'
 }
 
 source_suffix = {
@@ -142,6 +146,9 @@ extensions = [
 
     # https://sphinx-design.readthedocs.io/en/latest/
     'sphinx_design',
+
+    # https://sphinx-favicon.readthedocs.io/en/stable/
+    'sphinx_favicon',
 
     # https://sphinx-inline-tabs.readthedocs.io/en/latest/
     'sphinx_inline_tabs',
@@ -233,6 +240,8 @@ intersphinx_mapping = {
 
     'circuitpython'    : ('https://docs.circuitpython.org/en/latest/', None),
     'micropython'      : ('https://docs.micropython.org/en/latest/', None),
+
+    'kernel'           : ('https://docs.kernel.org/index.html', None),
 
     # ''     : ('', None),
     # ''     : ('', None),
